@@ -1,4 +1,6 @@
 const User = require('./User');
-const Thought = require('./Thought');
+const Realtors = require('./Realtors');
+const RegionModel = require('./Region');
+const EstateLocation = require('./EstateLocation');
 
-module.exports = { User, Thought };
+module.exports = { RegionModel, Realtors, EstateLocation, User };
