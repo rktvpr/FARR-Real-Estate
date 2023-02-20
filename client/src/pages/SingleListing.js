@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header, Footer } from '../components'
-import { Col, Row, Space } from 'antd';
+import { Col, Row, Button, Space } from 'antd';
+
 
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
