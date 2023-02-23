@@ -5,6 +5,6 @@ const RealtorsModel = new Schema({
 
 });
 
-const Realtors = model('User', RealtorsModel);
+const Realtors = model('Realtor', RealtorsModel);
 
 module.exports = Realtors;

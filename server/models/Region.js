@@ -5,6 +5,6 @@ const RegionModel = new Schema({
  
 });
 
-const Region = model('User', RegionModel);
+const Region = model('Region', RegionModel);
 
 module.exports = Region;
