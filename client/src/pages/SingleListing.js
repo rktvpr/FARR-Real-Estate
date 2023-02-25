@@ -12,19 +12,19 @@ import { QUERY_SINGLE_LISTING } from '../utils/queries';
 
 
 const SingleListing = () => {
-    // const { listingId } = useParams();
+    const { listingId } = useParams();
 
-    // const { loading, data } = useQuery(QUERY_SINGLE_LISTING, {
-    //     // pass URL parameter
-    //     variables: { listingId: listingId },
-    // });
+    const { loading, data } = useQuery(QUERY_SINGLE_LISTING, {
+        // pass URL parameter
+        variables: { listingId: listingId },
+    });
 
-    // const listing = data?.listing || {};
+    const listing = data?.listing || {};
 
 
-    // if (loading) {
-    //     return <div>One moment please!</div>;
-    // }
+    if (loading) {
+        return <div>One moment please!</div>;
+    }
     return (
         <div className="Listing container">
             <Header />
