@@ -14,6 +14,11 @@ const typeDefs = gql`
   results: [PropertyResult]
 }
 
+type Region {
+  name: String
+  _id: ID
+}
+
   type PropertyResult {
   list_price: Int
 }
@@ -45,6 +50,7 @@ const typeDefs = gql`
     thought(thoughtId: ID!): Thought
     me: User
     listing: ListingResult
+    searchRegion(name: String!, sortName: Int): [Region]
   }
 
   type Mutation {

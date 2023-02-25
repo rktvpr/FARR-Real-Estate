@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Region } = require('../models');
 const { signToken } = require('../utils/auth');
 
 // {"limit":200,"offset":0,"postal_code":"90004","status":["for_sale","ready_to_build"],"sort":{"direction":"desc","field":"list_date"}}
@@ -16,6 +16,26 @@ const resolvers = {
     },
     users: async () => {
       return User.find().populate('thoughts');
+    },
+
+    // searchRegion(name: String!, sortName: Int): [Region]
+    searchRegion: async (parent, {name, sortName, city,  }) => {
+    let sortVal = sortName ? sortName: 0;
+    if (sortVal)  {
+      return Region.find({
+        name: {
+          "$regex": new RegExp(name),
+          "$options": "i"
+        }
+      }).sort({name: sortVal})
+    } else {
+    return Region.find({
+        name: {
+          "$regex": new RegExp(name),
+          "$options": "i"
+        }
+      })
+    }
     },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('thoughts');
