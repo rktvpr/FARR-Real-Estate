@@ -8,7 +8,7 @@ const ListingCard = ({ id, address, description }) => {
     return (
       <Link to={`/listings/${id}`}>
         <Card
-          style={{ width: 300 }}
+          style={{ width: 500 }}
           cover={
             <img
               alt="example"
