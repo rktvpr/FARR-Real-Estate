@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Form, Input, Button, Spin } from 'antd';
 //import { NavLink } from "react-router-dom";
@@ -5,6 +6,15 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { SmileOutlined } from '@ant-design/icons';
 import Icons from '@ant-design/icons';
+
+
+import React, { useState } from 'react';
+
+import ReactDOM from 'react-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import Header from '../components/Header';
+
 import Auth from '../utils/auth';
 
 const FormItem = Form.Item;
@@ -29,6 +39,7 @@ const antIcon = <Icons type="loading" style={{ fontSize: 24 }} spin />;
               <p>{this.props.error.message}</p>
           );
       }
+
   
       const { getFieldDecorator } = this.props.form;
       return (
@@ -82,3 +93,4 @@ const antIcon = <Icons type="loading" style={{ fontSize: 24 }} spin />;
   }
   
   export default connect(mapStateToProps, mapDispatchToProps)(NormalLoginForm);
+
