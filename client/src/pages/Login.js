@@ -1,11 +1,10 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Header from '../components/Header';
-
-import { Col, Row, Button, Space, Carousel } from 'antd';
 
 import Auth from '../utils/auth';
 
@@ -34,7 +33,7 @@ class NormalLoginForm extends React.PureComponent {
             rules: [{ required: true, message: 'Please input your username!' }],
           })(
             <Input
-              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            //   prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Username"
             />
           )}
@@ -44,7 +43,7 @@ class NormalLoginForm extends React.PureComponent {
             rules: [{ required: true, message: 'Please input your Password!' }],
           })(
             <Input
-              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            //   prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
               placeholder="Password"
             />
@@ -72,15 +71,15 @@ class NormalLoginForm extends React.PureComponent {
   }
 }
 
-const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(
-  NormalLoginForm
-);
+// const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(
+//   NormalLoginForm
+// );
 
-ReactDOM.render(
-  <WrappedNormalLoginForm />,
-  document.getElementById('container')
-);
+// ReactDOM.render(
+//   <WrappedNormalLoginForm />,
+//   document.getElementById('container')
+// );
 
 
-export default Login;
+export default NormalLoginForm;
 
