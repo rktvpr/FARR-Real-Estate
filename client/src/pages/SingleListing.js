@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../components/Header'
-import { Footer } from '../components/Footer'
+import Header from '../components/Header/index'
+import  Footer  from '../components/Footer/index'
 import { Col, Row, Button, Space, Carousel } from 'antd';
 
 
@@ -30,35 +30,36 @@ const SingleListing = () => {
             <Header />
             <div className="SingleListing">
                 <Row>
-                    <Col span={12} push={12}>
-                        <h2> ADDRESS </h2>
+                <Col span={12} push={12}>
                     </Col>
-                    <Col span={12} pull={12}>
+                    <Col span={12} pull={8}>
+                        <h2> 123 Example Address </h2>
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={12} push={12}>
+                <Col span={10} push={12}>
+                        DESCRIPTION
+                    </Col>
+                    <Col span={10} pull={8}>
                         <Carousel autoplay>
                             <div>
-                                <h3 className="contentStyle">1</h3>
+                                <h3 className="contentStyle">Picture 1</h3>
                             </div>
                             <div>
-                                <h3 className="contentStyle">2</h3>
+                                <h3 className="contentStyle">Picture 2</h3>
                             </div>
                             <div>
-                                <h3 className="contentStyle">3</h3>
+                                <h3 className="contentStyle">Picture 3</h3>
                             </div>
                             <div>
-                                <h3 className="contentStyle">4</h3>
+                                <h3 className="contentStyle">Picture 4</h3>
                             </div>
                         </Carousel>
                     </Col>
-                    <Col span={12} pull={12}>
-                        DESCRIPTION
-                    </Col>
+
                 </Row>
                 <Row>
-                    <Col span={12} push={12}>
+                    <Col span={10} push={12}>
                         <Space direction="vertical" style={{ width: '100%' }}>
                             <Button type="primary" block>
                                 <Link to="/contactrealtor">Contact a Realtor today!</Link>

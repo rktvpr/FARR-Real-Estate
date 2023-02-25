@@ -82,7 +82,7 @@ function App() {
                 element={<Profile />}
               />
               <Route
-                path="/listings"
+                path="/listings:listingId"
                 element={<SingleListing />}
               />
             </Routes>
