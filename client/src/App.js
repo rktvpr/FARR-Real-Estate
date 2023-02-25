@@ -1,4 +1,7 @@
 import React from 'react';
+import axios from 'axios';
+
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,8 +18,8 @@ import SingleListing from './pages/SingleListing';
 import Profile from './pages/Profile';
 import SearchResult from './pages/SearchResult';
 import ContactRealtor from './pages/ContactRealtor';
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
