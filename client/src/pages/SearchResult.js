@@ -11,7 +11,7 @@ const SearchResult = () => {
     return (
         <div>
             <Header/>
-            <h2 className="resultsTitle">Search Results for "{searchQuery}"</h2>
+            <h2 className="resultsTitle" style={{ marginLeft: '45px' }}>Search Results for "{searchQuery}"</h2>
             <Row>
                 <Col span={12} push={14} style={{ marginBottom: '75px' }}>
                     <ListingCard/>
