@@ -15,6 +15,28 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const LISTING = gql`
+query {
+	listing {
+		count,
+		results {
+			list_price,
+			property_id,
+		  primary_photo {
+			href
+			},
+			location {
+				address {
+					city,
+					line,
+					state
+				}
+			}
+		}
+	}
+}
+`
+
 export const QUERY_THOUGHTS = gql`
   query getThoughts {
     thoughts {

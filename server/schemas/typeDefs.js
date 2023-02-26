@@ -21,6 +21,23 @@ type Region {
 
   type PropertyResult {
   list_price: Int
+  property_id: String
+  primary_photo: Photo
+  location: Location
+}
+
+type Location {
+  address: Address
+}
+
+type Address {
+  city: String
+  line: String
+  state: String
+}
+
+type Photo {
+  href: String
 }
 
   type Thought {
@@ -50,6 +67,7 @@ type Region {
     thought(thoughtId: ID!): Thought
     me: User
     listing: ListingResult
+    listings: ListingResult
     searchRegion(name: String!, sortName: Int): [Region]
   }
 
