@@ -1,8 +1,11 @@
 import React from 'react';
+import { Layout } from 'antd';
 
-const Footer = () => {
+const { Footer } = Layout;
+
+const AppFooter = () => {
   return (
-    <footer>
+    <Footer style={{ textAlign: 'center' }}>
       <div className="container">
         <div className="row">
           <div className="col-md-6">
@@ -17,8 +20,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </Footer>
   );
 };
 
-export default Footer;
+export default AppFooter;
