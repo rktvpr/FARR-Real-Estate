@@ -16,7 +16,8 @@ const ListingCard = ({ id, address, description }) => {
             />
           }
         >
-          <Meta title={address} description={description} />
+          {/* <Meta title={address} description={description} /> */}
+          <Meta title="Example Address" description="Example description" />
         </Card>
       </Link>
     );
