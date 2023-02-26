@@ -25,6 +25,13 @@ type Region {
   location: Location
 }
 
+type Description {
+  type: String
+  beds: Int
+  baths: Int
+  sqft: Int
+}
+
 type Location {
   address: Address
 }

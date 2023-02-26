@@ -4,7 +4,7 @@ import { Card } from 'antd';
 
 const { Meta } = Card;
 
-const ListingCard = ({ property_id, address, description }) => {
+const ListingCard = ({ property_id, address, description, primary_photo }) => {
     return (
       <Link to={`/listings/${property_id}`}>
         <Card
@@ -12,12 +12,12 @@ const ListingCard = ({ property_id, address, description }) => {
           cover={
             <img
               alt="example"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+              src={primary_photo}
             />
           }
         >
           {/* <Meta title={address} description={description} /> */}
-          <Meta title={address?.line} description="Example description" />
+          <Meta title={address?.line} description="Test description" />
         </Card>
       </Link>
     );
