@@ -21,39 +21,39 @@ const SearchResult = () => {
                     <ListingCard address= {data.listing.results[0].location.address}/>
                     </Col>
                     <Col span={12} pull={8}>
-                        <ListingCard/>
+                        <ListingCard address= {data.listing.results[9].location.address}/>
                     </Col>
                 </Row>
                 <Row>
                 <Col span={12} push={14} style={{ marginBottom: '75px' }}>
-                    <ListingCard/>
+                    <ListingCard address= {data.listing.results[1].location.address}/>
                     </Col>
                     <Col span={12} pull={8}>
-                        <ListingCard/>
+                        <ListingCard address= {data.listing.results[2].location.address}/>
                     </Col>
                 </Row>
                 <Row>
                 <Col span={12} push={14} style={{ marginBottom: '75px' }}>
-                    <ListingCard/>
+                    <ListingCard address= {data.listing.results[3].location.address}/>
                     </Col>
                     <Col span={12} pull={8}>
-                        <ListingCard/>
+                        <ListingCard address= {data.listing.results[4].location.address}/>
                     </Col>
                 </Row>
                 <Row>
                 <Col span={12} push={14} style={{ marginBottom: '75px' }}>
-                    <ListingCard/>
+                    <ListingCard address= {data.listing.results[5].location.address}/>
                     </Col>
                     <Col span={12} pull={8}>
-                        <ListingCard/>
+                        <ListingCard address= {data.listing.results[6].location.address}/>
                     </Col>
                 </Row>
                 <Row>
                 <Col span={12} push={14} style={{ marginBottom: '75px' }}>
-                    <ListingCard/>
+                    <ListingCard address= {data.listing.results[7].location.address}/>
                     </Col>
                     <Col span={12} pull={8}>
-                        <ListingCard/>
+                        <ListingCard address= {data.listing.results[8].location.address}/>
                     </Col>
                 </Row>
         
