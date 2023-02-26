@@ -4,9 +4,9 @@ import { Card } from 'antd';
 
 const { Meta } = Card;
 
-const ListingCard = ({ id, address, description }) => {
+const ListingCard = ({ property_id, address, description }) => {
     return (
-      <Link to={`/listings/${id}`}>
+      <Link to={`/listings/${property_id}`}>
         <Card
           style={{ width: 500 }}
           cover={
@@ -17,7 +17,7 @@ const ListingCard = ({ id, address, description }) => {
           }
         >
           {/* <Meta title={address} description={description} /> */}
-          <Meta title="Example Address" description="Example description" />
+          <Meta title={address?.line} description="Example description" />
         </Card>
       </Link>
     );

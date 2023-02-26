@@ -18,12 +18,10 @@ import SingleListing from './pages/SingleListing';
 import Profile from './pages/Profile';
 import SearchResult from './pages/SearchResult';
 import ContactRealtor from './pages/ContactRealtor';
-import Header from './components/Header/index';
-import Footer from './components/Footer/index';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -50,7 +48,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
           <div className="container">
             <Routes>
               <Route
@@ -78,16 +75,15 @@ function App() {
                 element={<Profile />}
               />
               <Route
-                path="/profiles/:username"
+                path="/profile"
                 element={<Profile />}
               />
               <Route
-                path="/listings:listingId"
+                path="/listings"
                 element={<SingleListing />}
               />
             </Routes>
           </div>
-          <Footer />
         </div>
       </Router>
     </ApolloProvider>
