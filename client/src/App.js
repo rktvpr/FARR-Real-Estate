@@ -18,8 +18,8 @@ import SingleListing from './pages/SingleListing';
 import Profile from './pages/Profile';
 import SearchResult from './pages/SearchResult';
 import ContactRealtor from './pages/ContactRealtor';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/Header/index';
+import Footer from './components/Footer/index';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
