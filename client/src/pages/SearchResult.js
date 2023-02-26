@@ -1,9 +1,19 @@
 import React from 'react';
+<<<<<<< HEAD
+//import { useQuery } from '@apollo/client';
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+import { QUERY } from '../utils/queries';
+
+=======
 import { useLocation } from "react-router-dom";
 import { Col, Row } from 'antd';
 import Header from '../components/Header/index';
 import Footer from '../components/Footer/index';
 import ListingCard from '../components/ListingCard/index'
+>>>>>>> 2cc510a62f333e3871dffdb5a32cfba5a69a13b9
 
 const SearchResult = () => {
     const location = useLocation();

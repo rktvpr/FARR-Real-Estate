@@ -1,11 +1,11 @@
-import React from 'react';
+//import React from 'react';
 
-const Footer = () => {
-    return (
-        <header className="">
-            test
-        </header>
-    )
-}
+//const Footer = () => {
+//    return (
+ //       <header className="">
+ //           test
+  //      </header>
+  //  )
+//}
 
-export default Footer
+//export default Footer
