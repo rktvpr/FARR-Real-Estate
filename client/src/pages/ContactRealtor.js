@@ -24,6 +24,7 @@ const ContactForm = () => {
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
+      style={{ maxWidth: 600, margin: '0 auto' }}
     >
       <Form.Item
         label="Name"
