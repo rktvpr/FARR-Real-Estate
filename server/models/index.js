@@ -1,5 +1,5 @@
 const User = require('./User');
-const Realtors = require('./Realtors');
+const Realtors = require('./RealtorRequest');
 const Region = require('./Region');
 const EstateLocation = require('./EstateLocation');
 

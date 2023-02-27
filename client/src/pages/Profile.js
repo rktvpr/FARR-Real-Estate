@@ -60,7 +60,12 @@ const Profile = () => {
     </>
   );
 };
+<<<<<<< HEAD
 
 export default Profile;
 
 
+=======
+
+export default Profile;
+>>>>>>> 9dc5e8e2410b1ef601fbaa6473c982c323ece890
