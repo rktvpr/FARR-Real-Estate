@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Axios from "axios";
+
 import { Form, Input, Button } from "antd";
 
 
@@ -16,7 +16,6 @@ const Login = () => {
         email: '',
         password: '',
       });
-  const [loginStatus, setLoginStatus]=useState("");
   
   const [login, { error, data }] = useMutation(LOGIN_USER);
   
@@ -50,7 +49,6 @@ const Login = () => {
   };
   return (
     <div>
-        <h1>{loginStatus}</h1>
       <Form
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
