@@ -17,6 +17,7 @@ const ListingCard = ({ property_id, address, description, primary_photo }) => {
           }
         >
           {/* <Meta title={address} description={description} /> */}
+
           <Meta title={address?.line} description="Test description" />
         </Card>
       </Link>
