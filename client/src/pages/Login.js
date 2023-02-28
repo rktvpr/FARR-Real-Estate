@@ -32,8 +32,6 @@ const Login = () => {
             });
 
 
-
-
             Auth.login(data.login.token);
             } catch (e) {
             console.error(e);
