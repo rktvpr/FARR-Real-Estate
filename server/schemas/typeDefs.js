@@ -23,6 +23,7 @@ type Region {
   property_id: String
   primary_photo: Photo
   location: Location
+  description: Description
 }
 
 type Description {
@@ -34,6 +35,7 @@ type Description {
 
 type Location {
   address: Address
+  description: Description
 }
 
 type Address {
