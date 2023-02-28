@@ -1,4 +1,7 @@
 import React from 'react';
+
+    //const location = useLocation();
+
 import { useLocation } from "react-router-dom";
 import { Col, Row } from 'antd';
 import Header from '../components/Header/index';
@@ -10,6 +13,7 @@ import { LISTING } from '../utils/queries';
 const SearchResult = () => {
     const { loading, error, data } = useQuery(LISTING);
     const location = useLocation();
+
     const searchQuery = new URLSearchParams(location.search).get("q");
     if (loading) return <p>loading...</p>
     return (
