@@ -19,7 +19,7 @@ const UserModel = new Schema({
     required: true,
     minlength: 5,
   },
-  Listings: [
+  listings: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Listings',
