@@ -6,7 +6,6 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    thoughts: [Thought]!
   }
 
   type ListingResult {
@@ -21,22 +20,31 @@ type Region {
 
   type PropertyResult {
   list_price: Int
+  property_id: String
+  primary_photo: Photo
+  location: Location
 }
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
-  }
+type Description {
+  type: String
+  beds: Int
+  baths: Int
+  sqft: Int
+}
 
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
-  }
+type Location {
+  address: Address
+}
+
+type Address {
+  city: String
+  line: String
+  state: String
+}
+
+type Photo {
+  href: String
+}
 
   type Auth {
     token: ID!
@@ -46,21 +54,22 @@ type Region {
   type Query {
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
     me: User
     listing: ListingResult
+    listings: ListingResult
     searchRegion(name: String!, sortName: Int): [Region]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
+
     login(username: String!, password: String!): Auth
     addThought(thoughtText: String!): Thought
     addComment(thoughtId: ID!, commentText: String!): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
-  }
+
+
 `;
 
 module.exports = typeDefs;

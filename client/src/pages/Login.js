@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Form, Input, Button } from "antd";
 
+
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
-import Auth from '../utils/auth';
+
+
+// import Auth from '../utils/auth';
 
 const Login = () => {
     const [formState, setFormState] = useState({
@@ -27,6 +30,9 @@ const Login = () => {
             const { data } = await login({
                 variables: { username:formState.username, password:formState.password },
             });
+
+
+
 
             Auth.login(data.login.token);
             } catch (e) {
