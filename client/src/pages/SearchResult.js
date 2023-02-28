@@ -1,6 +1,6 @@
 import React from 'react';
 //import { useQuery } from '@apollo/client';
-
+import { Row, Col} from "antd";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -8,7 +8,7 @@ import { QUERY } from '../utils/queries';
 
 
 const SearchResult = () => {
-    const location = useLocation();
+    //const location = useLocation();
     const searchQuery = new URLSearchParams(location.search).get("q");
     return (
         <div>

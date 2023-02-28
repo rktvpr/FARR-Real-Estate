@@ -8,36 +8,41 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+    const [formState, setFormState] = useState({
+        username: '',
+        email: '',
+        password: '',
+      });
   const [loginStatus, setLoginStatus]=useState("");
   
   const [login, { error, data }] = useMutation(LOGIN_USER);
-  const submitLogin = () => {
-    Axios.post("http://localhost:3001",{username:username, password:password })
-    .then((res)=>{
-        console.log(res)
-        if (res.data.status){
-            /*
+  
+  const submitLogin = async (event) => {
+    
+
+        event.preventDefault()
+       // if (res.data.status){
+           
             try {
             const { data } = await login({
-                variables: { username:username, password:password },
+                variables: { username:formState.username, password:formState.password },
             });
 
             Auth.login(data.login.token);
             } catch (e) {
             console.error(e);
             }
-
-            setUsername('')
-            setPassword('')
-            */
-        } else{
-            if (res.data.message){
-                setLoginStatus(res.data.message)
-            }
-        }
-    });
+            // setFormState({
+            //     username: '',
+            //     email: '',
+            //     password: '',
+            // })
+            
+       // } else{
+         //   if (res.data.message){
+          //      setLoginStatus(res.data.message)
+          //  }
+   
   };
   return (
     <div>
@@ -56,8 +61,12 @@ const Login = () => {
           <Input
             placeholder="Username"
             onChange={(e) => {
-              setUsername(e.target.value);
-            }}
+                setFormState({
+                    ...formState,
+                    username:e.target.value
+                });
+                }}
+        
           />
         </Form.Item>
 
@@ -71,7 +80,10 @@ const Login = () => {
             type = "password"
             placeholder="Password"
             onChange={(e) => {
-              setPassword(e.target.value);
+                setFormState({
+                    ...formState,
+                    password:e.target.value
+                });
             }}
           />
         </Form.Item>
@@ -83,7 +95,10 @@ const Login = () => {
         </Form.Item>
       </Form>
     </div>
+  
   );
+        
 };
+
 
 export default Login;
