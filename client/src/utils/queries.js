@@ -25,6 +25,12 @@ query {
 		  primary_photo {
 			href
 			},
+			description {
+				type,
+				beds,
+				baths,
+				sqft
+			}
 			location {
 				address {
 					city,
