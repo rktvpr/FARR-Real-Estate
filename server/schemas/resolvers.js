@@ -2,6 +2,9 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Region } = require('../models');
 const { signToken } = require('../utils/auth');
 const axios = require("axios");
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 // {"limit":200,"offset":0,"postal_code":"90004","status":["for_sale","ready_to_build"],"sort":{"direction":"desc","field":"list_date"}}
 // https://realty-in-us.p.rapidapi.com/properties/v3/list
@@ -47,7 +50,7 @@ const resolvers = {
         url: 'https://realty-in-us.p.rapidapi.com/properties/v3/list',
         headers: {
           'content-type': 'application/json',
-          'X-RapidAPI-Key': 'test api key',
+          'X-RapidAPI-Key': process.env.API_KEY,
           'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
         },
         data: '{"limit":200,"offset":0,"postal_code":"90004","status":["for_sale","ready_to_build"],"sort":{"direction":"desc","field":"list_date"}}'
@@ -55,6 +58,20 @@ const resolvers = {
       // const result = await axios.request(options);
       // console.log(result.home_search);
       // return result.data.data.home_search;
+    },
+
+    home_search: async (_, { property_id }) => {
+      const options = {
+        method: 'GET',
+        url: 'https://realty-in-us.p.rapidapi.com/properties/v3/get-photos',
+        params: { property_id },
+        headers: {
+          'X-RapidAPI-Key': process.env.API_KEY,
+          'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
+        }
+      };
+      const result = await axios.request(options);
+      return result.data.data.home_search.results[0];
     },
 
     me: async (parent, args, context) => {
