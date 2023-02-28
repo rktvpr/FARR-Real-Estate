@@ -20,6 +20,8 @@ import SearchResult from './pages/SearchResult';
 import ContactRealtor from './pages/ContactRealtor';
 import Header from './components/Header/index';
 import Footer from './components/Footer/index';
+import navbar from './components/navbar';
+import {browser as Router, swithc, Route} from 'react-router-dom'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -53,6 +55,12 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
+              <Route>
+                <navbar />
+                <switch>
+                  <Route path='/' exact />
+                </switch>
+              </Route>
               <Route
                 path="/"
                 element={<Home />}
