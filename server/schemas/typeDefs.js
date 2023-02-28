@@ -31,6 +31,7 @@ type Description {
   type: String
   beds: Int
   baths: Int
+  lot_sqft: Int
   sqft: Int
 }
 
