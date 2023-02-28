@@ -4,11 +4,8 @@ import { Col, Row } from 'antd';
 import Header from '../components/Header/index';
 import Footer from '../components/Footer/index';
 import ListingCard from '../components/ListingCard/index'
-<<<<<<< HEAD
-=======
 import { useQuery } from '@apollo/client';
 import { LISTING } from '../utils/queries';
->>>>>>> 9dc5e8e2410b1ef601fbaa6473c982c323ece890
 
 const SearchResult = () => {
     const { loading, error, data } = useQuery(LISTING);
