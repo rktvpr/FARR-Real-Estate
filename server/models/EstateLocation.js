@@ -2,12 +2,6 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const EstateModel = new Schema({
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
-  },
 
   Address: {
     type: String,
@@ -15,12 +9,12 @@ const EstateModel = new Schema({
   },
 
   Price: {
-    type: DataTypes.INTEGER,
+    type: Number,
     autoIncrement: true,
   },
 
 });
 
-const EstateLocation = model('User', EstateModel);
+const EstateLocation = model('EstateLocation', EstateModel);
 
 module.exports = EstateLocation;

@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Header = () => {
-    const logout = (event) => {
-        event.preventDefault();
-        Auth.logout();
-    };
+    // const logout = (event) => {
+    //     event.preventDefault();
+    //     Auth.logout();
+    // };
     return (
         <header className="">
             test

@@ -8,12 +8,6 @@ const UserModel = new Schema({
     unique: true,
     trim: true,
   },
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
-  },
   email: {
     type: String,
     required: true,
