@@ -2,11 +2,11 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type User {
-    _id: ID
+    
     username: String
+    id: ID
     email: String
     password: String
-    thoughts: [Thought]!
   }
 
   type ListingResult {
@@ -21,22 +21,47 @@ type Region {
 
   type PropertyResult {
   list_price: Int
+  property_id: String
+  primary_photo: Photo
+  location: Location
+  description: Description
 }
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
-  }
+type Description {
+  type: String
+  beds: Int
+  baths: Int
+  sqft: Int
+}
 
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
-  }
+type Location {
+  address: Address
+  description: Description
+}
+
+type Address {
+  city: String
+  line: String
+  state: String
+}
+
+type HomePhoto {
+  href: String!
+}
+
+type SearchHome {
+  property_id: Int!
+  listing_id: Int!
+  photos: [HomePhoto!]!
+}
+
+type SearchHomeResult {
+  results: [SearchHome!]!
+}
+
+type Photo {
+  href: String
+}
 
   type Auth {
     token: ID!
@@ -46,20 +71,22 @@ type Region {
   type Query {
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
     me: User
     listing: ListingResult
+    listings: ListingResult
+    home_search(property_id: Int!): SearchHomeResult!
     searchRegion(name: String!, sortName: Int): [Region]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+
+    login(username: String!, password: String!): Auth
+    # addThought(thoughtText: String!): Thought
+    # addComment(thoughtId: ID!, commentText: String!): Thought
+    # removeThought(thoughtId: ID!): Thought
+    # removeComment(thoughtId: ID!, commentId: ID!): Thought 
+
   }
 `;
 

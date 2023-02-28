@@ -15,16 +15,33 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-    }
-  }
-`;
+export const LISTING = gql`
+query {
+	listing {
+		count,
+		results {
+			list_price,
+			property_id,
+		  primary_photo {
+			href
+			},
+			description {
+				type,
+				beds,
+				baths,
+				sqft
+			}
+			location {
+				address {
+					city,
+					line,
+					state
+				}
+			}
+		}
+	}
+}
+`
 
 export const QUERY_SINGLE_LISTING = gql`
   query getSingleThought($thoughtId: ID!) {
@@ -49,12 +66,6 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        thoughtAuthor
-        createdAt
-      }
     }
   }
 `;
