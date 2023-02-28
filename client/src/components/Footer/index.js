@@ -15,9 +15,9 @@ const AppFooter = () => {
           </div>
           <div className="col-md-6">
             <nav className="nav justify-content-end">
-              <a className="nav-link" href="#">Terms of Use  </a>
-              <a className="nav-link" href="#">Privacy Policy  </a>
-              <a className="nav-link" href="#">Contact Us</a>
+              <a className="nav-link" href="#" style={{ textDecoration: 'none' }}>Terms of Use  </a>
+              <a className="nav-link" href="#" style={{ textDecoration: 'none' }}>Privacy Policy  </a>
+              <a className="nav-link" href="#" style={{ textDecoration: 'none' }}>Contact Us</a>
             </nav>
           </div>
         </div>
