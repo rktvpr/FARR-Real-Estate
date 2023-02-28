@@ -54,3 +54,29 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const MUTATION_UPDATE_USER = gql`
+  mutation updateUser(
+    $name: String
+    $email: String
+    $phone: String
+    $address: String
+  ) {
+    updateUser(
+      name: $name
+      email: $email
+      phone: $phone
+      address: $address
+    ) {
+      _id
+      name
+      email
+      phone
+      address
+    }
+  }
+`;
+
+
+
+
