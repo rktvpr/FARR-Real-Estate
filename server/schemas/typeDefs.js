@@ -44,6 +44,20 @@ type Address {
   state: String
 }
 
+type HomePhoto {
+  href: String!
+}
+
+type SearchHome {
+  property_id: Int!
+  listing_id: Int!
+  photos: [HomePhoto!]!
+}
+
+type SearchHomeResult {
+  results: [SearchHome!]!
+}
+
 type Photo {
   href: String
 }
@@ -59,6 +73,7 @@ type Photo {
     me: User
     listing: ListingResult
     listings: ListingResult
+    home_search(property_id: Int!): SearchHomeResult!
     searchRegion(name: String!, sortName: Int): [Region]
   }
 
