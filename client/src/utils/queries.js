@@ -29,6 +29,7 @@ query {
 				type,
 				beds,
 				baths,
+        lot_sqft,
 				sqft
 			}
 			location {

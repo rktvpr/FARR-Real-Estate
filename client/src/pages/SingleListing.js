@@ -1,9 +1,10 @@
 import React from 'react';
 import Header from '../components/Header/index'
 import Footer from '../components/Footer/index'
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import { Col, Row, Button, Space, Carousel } from 'antd';
-
+import Background from '../images/Background-image-Listing.jpg'
+import Placeholder from '../images/Image1.jpg'
 
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -25,56 +26,89 @@ const SingleListing = () => {
 
 
     if (loading) return <p>Loading...</p>;
-  
-    const property = data.listing.results.find((p) => p.property_id === property_id);
-  
-    return (
-      <div className="Listing container">
-        <Header />
-        <div className="SingleListing">
-          <Row>
-            <Col span={12} push={12}>
-            </Col>
-            <Col span={12} pull={8}>
-              <h2> "{property.location.address.line}" </h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col span={10} push={12}>
-              <h3>Description:</h3>
-              <p>Type: {property.description.type}</p>
-              <p>Beds: {property.description.beds}</p>
-              <p>Baths: {property.description.baths}</p>
-              <p>Sqft: {property.description.sqft}</p>
-            </Col>
-                    <Col span={10} pull={8}>
-                        <Carousel autoplay>
-                            <div>
-                                <h3 className="contentStyle">Picture 1</h3>
-                            </div>
-                            <div>
-                                <h3 className="contentStyle">Picture 2</h3>
-                            </div>
-                            <div>
-                                <h3 className="contentStyle">Picture 3</h3>
-                            </div>
-                            <div>
-                                <h3 className="contentStyle">Picture 4</h3>
-                            </div>
-                        </Carousel>
-                    </Col>
 
+    const property = data.listing.results.find((p) => p.property_id === property_id);
+
+    return (
+        <div className="Listing container">
+            <Header />
+            <div className="SingleListing" style={{
+                backgroundImage: `url(${Background})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+
+            }}>
+                <Row>
+                    <Col span={12} push={12}>
+                    </Col>
+                    <Col span={12} pull={8}>
+                        <h2> {property.location.address.line}, {property.location.address.city}, {property.location.address.state} </h2>
+                    </Col>
                 </Row>
                 <Row>
+
                     <Col span={10} push={12}>
-                        <Space direction="vertical" style={{ width: '100%' }}>
+                        <div style={{
+                            border: '1px solid #ccc',
+                            padding: '10px',
+                            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                            borderRadius: '12px',
+                            marginBottom: '50px',
+                            marginLeft: '10px',
+                            height: '60vh'
+                        }}>
+
+                            <h3>Description:</h3>
+                            <p style={{fontWeight: 'bold'}}>List Price: {property.list_price}</p>
+                            <p style={{fontWeight: 'bold'}}>Type: {property.description.type}</p>
+                            <p style={{fontWeight: 'bold'}}>Beds: {property.description.beds}</p>
+                            <p style={{fontWeight: 'bold'}}>Baths: {property.description.baths}</p>
+                            <p style={{fontWeight: 'bold'}}>Lot squarefeet: {property.description.lot_sqft}</p>
+                            <p style={{fontWeight: 'bold'}}>Squarefeet: {property.description.sqft}</p>
+                        </div>
+
+                        <Space direction="vertical" style={{ width: '100%', marginBottom: '350px' }}>
                             <Button type="primary" block>
                                 <Link to="/contactrealtor">Contact a Realtor today!</Link>
                             </Button>
                         </Space>
+
                     </Col>
-                    <Col span={12} pull={12}>
+
+                    <Col span={10} pull={8}>
+                        <Carousel autoplay>
+                            <div>
+                                <img
+                                    alt="example"
+                                    src={Placeholder}
+                                    style={{ borderRadius: '15px' }}
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    alt="example"
+                                    src={Placeholder}
+                                    style={{ borderRadius: '15px' }}
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    alt="example"
+                                    src={Placeholder}
+                                    style={{ borderRadius: '15px' }}
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    alt="example"
+                                    src={Placeholder}
+                                    style={{ borderRadius: '15px' }}
+                                />
+                            </div>
+                        </Carousel>
                     </Col>
+
                 </Row>
             </div>
             <Footer />
