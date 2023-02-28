@@ -1,18 +1,99 @@
-import React from 'react';
-//import { useQuery } from '@apollo/client';
+import React, { useState } from "react";
+import Axios from "axios";
+import { Form, Input, Button } from "antd";
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-
-import { QUERY } from '../utils/queries';
-
+import Auth from '../utils/auth';
 
 const Signup = () => {
-    return (
-        <div>
+  
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
-        </div>
-    )
-}
+  const submitSignUp = async (event) => {
+ event.preventDefault()
+        try {
+            const { data } = await addUser({
+              variables: { ...formState },
+            });
+      
+            Auth.login(data.addUser.token);
+          } catch (e) {
+            console.error(e);
+          }
+   
+  };
+  return (
+    <div>
+      <Form
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        style={{ maxWidth: 600 }}
+        autoComplete="off"
+      >
+        <Form.Item
+          label="Username"
+          name="username"
+          rules={[{ required: true, message: "Please input your username!" }]}
+        >
+          <Input
+            placeholder="Username"
+            onChange={(e) => {
+              setFormState({
+                ...formState,
+                username:e.target.value
+              });
+            }}
+          />
+        </Form.Item>
 
-export default Signup
+        <Form.Item
+          label="Email"
+          name="email"
+          rules={[{ required: true, message: "Please input your email!" }]}
+        >
+          <Input
+            placeholder="Email"
+            onChange={(e) => {
+              setFormState({
+                ...formState,
+                email:e.target.value
+              });
+            }}
+          />
+        </Form.Item>
+
+        <Form.Item
+          
+          label="Password"
+          name="password"
+          rules={[{ required: true, message: "Please input your password!" }]}
+        >
+          <Input
+            type = "password"
+            placeholder="Password"
+            onChange={(e) => {
+              setFormState({
+                ...formState,
+                password:e.target.value
+              });
+            }}
+          />
+        </Form.Item>
+
+        <Form.Item wrapperCol={{offset:8, span:16}}>
+        <Button type="primary" htmlType="submit" onClick={submitSignUp}>
+            Sign Up
+        </Button>    
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+
+export default Signup;
