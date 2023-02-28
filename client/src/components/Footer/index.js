@@ -27,4 +27,3 @@ const AppFooter = () => {
 };
 
 export default AppFooter;
->>>>>>> 9dc5e8e2410b1ef601fbaa6473c982c323ece890
