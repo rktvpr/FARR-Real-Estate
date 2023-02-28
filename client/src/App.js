@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -11,11 +12,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Signup from './pages/Signup';
-// import Login from './pages/Login';
+ import Login from './pages/Login';
 import SingleListing from './pages/SingleListing';
 import Profile from './pages/Profile';
 import SearchResult from './pages/SearchResult';
 import ContactRealtor from './pages/ContactRealtor';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -52,10 +54,10 @@ function App() {
                 path="/"
                 element={<Home />}
               />
-              {/* <Route
+               <Route
                 path="/login"
                 element={<Login />}
-              /> */}
+              /> 
               <Route
                 path="/signup"
                 element={<Signup />}
