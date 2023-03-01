@@ -10,14 +10,19 @@
 
 .loginForm{
   background-color: rgba(255, 255, 255,0.33);
-  box-shadow: 0px 8px 32px 0  rgba(0, 0, 255, 0.3);
+  box-shadow: 0px 36px 30px 0  rgba(0, 0, 255, 0.3);
   backdrop-filter: blur(3px);
-  padding: 40px 16px 16px 16px;
+  padding: 10px 40px 16px 16px;
   border-radius: 16px;
-  margin-bottom: 800px;
+  margin-bottom: 500px;
   margin-top: 50px;
-  
- 
+  position: absolute ;
+  left: 30px;
+  top: 100px;
+}
+
+.welcome{
+  padding: 50px 40px 16px 16px;
 }
 
 .socialLogin{
@@ -27,4 +32,11 @@
 }
 .socialIcon{
   cursor: pointer;
+}
+
+footer {
+  width: 100%;
+  position:absolute;
+  bottom: 0;
+  margin-bottom: 10px;
 }
