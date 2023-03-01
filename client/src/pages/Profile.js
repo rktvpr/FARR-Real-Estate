@@ -60,6 +60,7 @@ const Profile = () => {
     <div className="container mt-5">
       <div className="row">
         <div className="col-md-3">
+          test
           <Card
             cover={<img src={user.image} alt={user.name} className="card-img-top" />}
           >

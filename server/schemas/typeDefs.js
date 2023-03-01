@@ -4,7 +4,7 @@ const typeDefs = gql`
   type User {
     
     username: String
-    id: ID
+    _id: ID
     email: String
     password: String
   }
@@ -51,7 +51,7 @@ type HomePhoto {
 }
 
 type SearchHome {
-  property_id: Int!
+  property_id: String!
   listing_id: Int!
   photos: [HomePhoto!]!
 }
@@ -75,7 +75,7 @@ type Photo {
     me: User
     listing: ListingResult
     listings: ListingResult
-    home_search(property_id: Int!): SearchHomeResult!
+    home_search(property_id: String!): SearchHomeResult!
     searchRegion(name: String!, sortName: Int): [Region]
   }
 
