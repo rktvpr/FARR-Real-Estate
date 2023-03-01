@@ -10,7 +10,8 @@ import { QUERY } from '../utils/queries';
 const Home = () => {
     return (
         <div>
-
+            <Header/>
+            <Footer/>
         </div>
     )
 }
