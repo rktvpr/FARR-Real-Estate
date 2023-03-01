@@ -18,8 +18,8 @@ import Profile from './pages/Profile';
 import SearchResult from './pages/SearchResult';
 import ContactRealtor from './pages/ContactRealtor';
 
-// import navbar from './components/navbar';
-// import { browser as Router, swithc, Route } from 'react-router-dom'
+// import Navbar from './components/Navbar';
+// import { browser as Router, switch, Route } from 'react-router-dom'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({

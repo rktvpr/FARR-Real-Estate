@@ -11,41 +11,41 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login = () => {
-    const [formState, setFormState] = useState({
-        username: '',
-        email: '',
-        password: '',
-      });
-  
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
   const [login, { error, data }] = useMutation(LOGIN_USER);
-  
+
   const submitLogin = async (event) => {
-    
-
-        event.preventDefault()
-       // if (res.data.status){
-           
-            try {
-            const { data } = await login({
-                variables: { username:formState.username, password:formState.password },
-            });
 
 
-            Auth.login(data.login.token);
-            } catch (e) {
-            console.error(e);
-            }
-            // setFormState({
-            //     username: '',
-            //     email: '',
-            //     password: '',
-            // })
-            
-       // } else{
-         //   if (res.data.message){
-          //      setLoginStatus(res.data.message)
-          //  }
-   
+    event.preventDefault()
+    // if (res.data.status){
+
+    try {
+      const { data } = await login({
+        variables: { username: formState.username, password: formState.password },
+      });
+
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+    // setFormState({
+    //     username: '',
+    //     email: '',
+    //     password: '',
+    // })
+
+    // } else{
+    //   if (res.data.message){
+    //      setLoginStatus(res.data.message)
+    //  }
+
   };
   return (
     <div>
@@ -63,43 +63,43 @@ const Login = () => {
           <Input
             placeholder="Username"
             onChange={(e) => {
-                setFormState({
-                    ...formState,
-                    username:e.target.value
-                });
-                }}
-        
+              setFormState({
+                ...formState,
+                username: e.target.value
+              });
+            }}
+
           />
         </Form.Item>
 
-    
+
         <Form.Item
           label="Password"
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
           <Input
-            type = "password"
+            type="password"
             placeholder="Password"
             onChange={(e) => {
-                setFormState({
-                    ...formState,
-                    password:e.target.value
-                });
+              setFormState({
+                ...formState,
+                password: e.target.value
+              });
             }}
           />
         </Form.Item>
 
-        <Form.Item wrapperCol={{offset:8, span:16}}>
-        <Button type="primary" htmlType="submit" onClick={submitLogin}>
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <Button type="primary" htmlType="submit" onClick={submitLogin}>
             Log in
-        </Button>    
+          </Button>
         </Form.Item>
       </Form>
     </div>
-  
+
   );
-        
+
 };
 
 
