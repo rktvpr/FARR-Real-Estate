@@ -3,6 +3,8 @@ import Axios from "axios";
 import { Form, Input, Button } from "antd";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import Header from '../components/Header/index'
+import Footer from '../components/Footer/index'
 
 import Auth from '../utils/auth';
 
@@ -30,6 +32,7 @@ const Signup = () => {
   };
   return (
     <div>
+      <Header/>
       <Form
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
@@ -92,6 +95,7 @@ const Signup = () => {
         </Button>    
         </Form.Item>
       </Form>
+      <Footer/>
     </div>
   );
 };

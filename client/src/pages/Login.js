@@ -5,6 +5,8 @@ import { Form, Input, Button } from "antd";
 
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import Header from '../components/Header/index'
+import Footer from '../components/Footer/index'
 
 
 
@@ -49,6 +51,7 @@ const Login = () => {
   };
   return (
     <div>
+      <Header/>
       <Form
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
@@ -96,6 +99,7 @@ const Login = () => {
         </Button>    
         </Form.Item>
       </Form>
+      <Footer/>
     </div>
   
   );

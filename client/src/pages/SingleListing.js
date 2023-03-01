@@ -1,31 +1,28 @@
 import React from 'react';
 import Header from '../components/Header/index'
 import Footer from '../components/Footer/index'
-// import { useLocation } from "react-router-dom";
 import { Col, Row, Button, Space, Carousel } from 'antd';
 import Background from '../images/Background-image-Listing.jpg'
-import Placeholder from '../images/Image1.jpg'
 
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import { LISTING } from '../utils/queries';
-
+import { IMAGES } from '../utils/queries';
 
 
 const SingleListing = () => {
     const { property_id } = useParams();
-    // const location = useLocation();
 
-    const { loading, data } = useQuery(LISTING, {
-        // pass URL parameter
+    const { loading, data } = useQuery(IMAGES, {
+
         variables: { property_id },
     });
 
-    // const listing = data?.listing || {};
+
 
 
     if (loading) return <p>Loading...</p>;
+     if(!loading) console.log(data)
 
     const property = data.listing.results.find((p) => p.property_id === property_id);
 
@@ -81,29 +78,43 @@ const SingleListing = () => {
                             <div>
                                 <img
                                     alt="example"
-                                    src={Placeholder}
-                                    style={{ borderRadius: '15px' }}
+                                    src={data.home_search.results[0].photos[0].href}
+                                    style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
                             <div>
                                 <img
                                     alt="example"
-                                    src={Placeholder}
-                                    style={{ borderRadius: '15px' }}
+                                    src={data.home_search.results[0].photos[1].href}
+                                    style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
                             <div>
                                 <img
                                     alt="example"
-                                    src={Placeholder}
-                                    style={{ borderRadius: '15px' }}
+                                    src={data.home_search.results[0].photos[2].href}
+                                    style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
                             <div>
                                 <img
                                     alt="example"
-                                    src={Placeholder}
-                                    style={{ borderRadius: '15px' }}
+                                    src={data.home_search.results[0].photos[3].href}
+                                    style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    alt="example"
+                                    src={data.home_search.results[0].photos[4].href}
+                                    style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    alt="example"
+                                    src={data.home_search.results[0].photos[5].href}
+                                    style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
                         </Carousel>
