@@ -12,14 +12,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Signup from './pages/Signup';
- import Login from './pages/Login';
+import Login from './pages/Login';
 import SingleListing from './pages/SingleListing';
 import Profile from './pages/Profile';
 import SearchResult from './pages/SearchResult';
 import ContactRealtor from './pages/ContactRealtor';
 
-import navbar from './components/navbar';
-import {browser as Router, swithc, Route} from 'react-router-dom'
+// import navbar from './components/navbar';
+// import { browser as Router, swithc, Route } from 'react-router-dom'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -52,20 +52,20 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <div className="container">
             <Routes>
-              <Route>
+              {/* <Route>
                 <navbar />
                 <switch>
                   <Route path='/' exact />
                 </switch>
-              </Route>
+              </Route> */}
               <Route
                 path="/"
                 element={<Home />}
               />
-               <Route
+              <Route
                 path="/login"
                 element={<Login />}
-              /> 
+              />
               <Route
                 path="/signup"
                 element={<Signup />}
