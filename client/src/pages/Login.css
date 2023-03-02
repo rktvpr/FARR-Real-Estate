@@ -40,7 +40,7 @@ footer {
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 880px) {
+/*@media screen and (max-width: 880px) {
   .loginForm {
     padding-top: 75px;
 
@@ -60,5 +60,5 @@ footer {
   .footer {
     font-size: 17px;
   }
-}
+}*/
 
