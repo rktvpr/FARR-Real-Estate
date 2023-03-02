@@ -45,7 +45,7 @@ const Header = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        window.location.href = `/searchresult?term=${searchQuery}`;
+        window.location.href = `/searchresult/${searchQuery}`;
     };
 
     return (
@@ -56,11 +56,11 @@ const Header = () => {
                         <Link to={item.link}>{item.label}</Link>
                     </Menu.Item>
                 ))}
-                <form onSubmit={handleSubmit} action={`/search/${searchQuery}`} method="get">
+                <form onSubmit={handleSubmit}>
                     <input type="text"
-                        value={searchQuery}
+                        value={searchQuery || ''}
                         onChange={onSearchChange}
-                        placeholder="Search..."
+                        placeholder="Input a zip code! "
                         style={{
                             border: 'none',
                             outline: 'none',

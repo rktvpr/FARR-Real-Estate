@@ -15,16 +15,16 @@ const SingleListing = () => {
 
     const { loading, data } = useQuery(IMAGES, {
 
-        variables: { property_id },
+        variables: { property_id: property_id },
     });
 
 
-
+    console.log(property_id)
 
     if (loading) return <p>Loading...</p>;
-     if(!loading) console.log(data)
+     if(!loading) console.log(data.home_search)
 
-    const property = data.listing.results.find((p) => p.property_id === property_id);
+     const property = data.home_search
 
     return (
         <div className="Listing container">
@@ -57,8 +57,8 @@ const SingleListing = () => {
                         }}>
 
                             <h3>Description:</h3>
-                            <p style={{fontWeight: 'bold'}}>List Price: {property.list_price}</p>
-                            <p style={{fontWeight: 'bold'}}>Type: {property.description.type}</p>
+                            <p style={{fontWeight: 'bold'}}>List Price: {property.list_price.toLocaleString()}</p>
+                            <p style={{fontWeight: 'bold'}}>Type: {property.description.type.replace("_", " ")}</p>
                             <p style={{fontWeight: 'bold'}}>Beds: {property.description.beds}</p>
                             <p style={{fontWeight: 'bold'}}>Baths: {property.description.baths}</p>
                             <p style={{fontWeight: 'bold'}}>Lot squarefeet: {property.description.lot_sqft}</p>
@@ -78,42 +78,42 @@ const SingleListing = () => {
                             <div>
                                 <img
                                     alt="example"
-                                    src={data.home_search.results[0].photos[0].href}
+                                    src={data.home_search.photos[0].href}
                                     style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
                             <div>
                                 <img
                                     alt="example"
-                                    src={data.home_search.results[0].photos[1].href}
+                                    src={data.home_search.photos[1].href}
                                     style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
                             <div>
                                 <img
                                     alt="example"
-                                    src={data.home_search.results[0].photos[2].href}
+                                    src={data.home_search.photos[2].href}
                                     style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
                             <div>
                                 <img
                                     alt="example"
-                                    src={data.home_search.results[0].photos[3].href}
+                                    src={data.home_search.photos[3].href}
                                     style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
                             <div>
                                 <img
                                     alt="example"
-                                    src={data.home_search.results[0].photos[4].href}
+                                    src={data.home_search.photos[4].href}
                                     style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
                             <div>
                                 <img
                                     alt="example"
-                                    src={data.home_search.results[0].photos[5].href}
+                                    src={data.home_search.photos[5].href}
                                     style={{ borderRadius: '15px', width: '100%', height: 'auto' }}
                                 />
                             </div>
