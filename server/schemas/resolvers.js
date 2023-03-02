@@ -16,7 +16,7 @@ const resolvers = {
       return data
     },
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find();
     },
 
     // searchRegion(name: String!, sortName: Int): [Region]
@@ -39,7 +39,7 @@ const resolvers = {
       }
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username });
     },
     listings: async () => {
       const options = {
@@ -59,7 +59,7 @@ const resolvers = {
 
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
+        return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -90,8 +90,8 @@ const resolvers = {
       return { token, user };
     },
   
-    updateUser: async (parent, { id, username, email, password }) => {
-      const user = await User.findByIdAndUpdate(id, { username, email, password }, { new: true });
+    updateUser: async (parent, { id, username, email, phone, address, password }) => {
+      const user = await User.findByIdAndUpdate(id, { username, email, phone, address, password }, { new: true });
       return user;
     },
   },

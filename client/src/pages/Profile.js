@@ -9,7 +9,9 @@ import { UserOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined } from '
 
 const Profile = () => {
 
-  const { loading, error, data } = useQuery(QUERY_PROFILE);
+  const { loading, error, data } = useQuery(QUERY_PROFILE, {
+    variables: {username:"rahsan123"}
+  });
   const [updateUser, {error: mutationError}] = useMutation(UPDATE_USER);
 
   const [formData, setFormData] = useState({
@@ -31,6 +33,7 @@ const Profile = () => {
     event.preventDefault();
 
     const cleanCopy = {...formData}
+    // cleanCopy.phone = parseInt(cleanCopy.phone)
     if(cleanCopy.username.length === 0){
       delete cleanCopy.username
     }
@@ -66,7 +69,7 @@ const Profile = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  const user = user.data;
+  const user = data?.user || {}
 
   return (
     <div className="container mt-5">
@@ -102,7 +105,7 @@ const Profile = () => {
                 <Input prefix={<EnvironmentOutlined />} name="address" value={formData.address} onChange={handleChange} />
               </Form.Item>
               {mutationError}
-              <Button type="primary" htmlType="submit">Save Changes</Button>
+              <Button type="submit" onClick={handleSubmit} htmlType="submit">Save Changes</Button>
             </Form>
           </Card>
         </div>

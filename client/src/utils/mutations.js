@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-mutation Mutation($username: String, $email: String, $address: String, $phone: Int, $password: String) {
-  updateUser(username: $username, email: $email, address: $address, phone: $phone, password: $password) {
+mutation Mutation($username: String, $email: String, $phone: String, $address: String, $password: String) {
+  updateUser(username: $username, email: $email, phone: $phone, address: $address, password: $password) {
     _id
     email
     username
