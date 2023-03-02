@@ -51,11 +51,9 @@ _ _ _
 
 ---
 
-<h1 align="center">FARR-Real-Estate Deployed Link</h1>
+<h1 align="center">FARR-Real-Estate Links</h1>
 
 [Deployed Link]()
-
-<h1 align="center">FARR-Real-Estate Repository Link</h1>
 
 [Repository Link](https://github.com/rktvpr/FARR-Real-Estate)
 
