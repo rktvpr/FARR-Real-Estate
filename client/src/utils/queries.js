@@ -61,13 +61,15 @@ export const QUERY_SINGLE_LISTING = gql`
 `;
 
 export const QUERY_ME = gql`
-  query me {
-    me {
-      _id
-      username
-      email
-    }
-  } 
+query getUserByUsername {
+  me {
+    email
+    address
+    phone
+    username
+    _id
+  }
+}
 `;
 
 export const QUERY_PROFILE = gql`
