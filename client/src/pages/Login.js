@@ -8,10 +8,7 @@ import { LOGIN_USER } from "../utils/mutations";
 import Header from "../components/Header/index";
 import Footer from "../components/Footer/index";
 
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-import Header from '../components/Header/index'
-import Footer from '../components/Footer/index'
+
 import Auth from "../utils/auth";
 import {
   FacebookOutlined,
@@ -136,7 +133,7 @@ const Login = () => {
           </div>
         </Form.Item>
       </Form>
-      <footer>
+      <footer className="footer">
         <Footer />
       </footer>
     </div>

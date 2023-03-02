@@ -1,8 +1,7 @@
 .loginBg{
  display: flex; 
- 
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   background: url('../../public/login.jpg');
   background-size: contain;
   
@@ -40,3 +39,26 @@ footer {
   bottom: 0;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 880px) {
+  .loginForm {
+    padding-top: 75px;
+
+  }
+}
+
+
+@media screen and (max-width: 572px) {
+  .loginForm {
+    margin-top: 10px;
+  }
+  .footer {
+    display: flex;
+    position: relative;
+   
+  }
+  .footer {
+    font-size: 17px;
+  }
+}
+
