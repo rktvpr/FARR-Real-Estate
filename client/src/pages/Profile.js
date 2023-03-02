@@ -7,7 +7,7 @@ import { UserOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined } from '
 import '../profile.css';
 import FormProfile from '../components/FormProfile';
 
-const UserInfo = ({formData}) => (
+const UserInfo = ({ formData }) => (
   <div>
     <p><strong>Name:</strong> {formData.name}</p>
     <p><strong>Email:</strong> {formData.email}</p>
@@ -21,7 +21,7 @@ const Profile = () => {
   const { loading, error, data } = useQuery(QUERY_ME, {
     variables: {}
   });
-  const [updateUser, {error: mutationError}] = useMutation(UPDATE_USER);
+  const [updateUser, { error: mutationError }] = useMutation(UPDATE_USER);
 
   const [formData, setFormData] = useState(() => {
     const user = data?.user || {};
@@ -33,15 +33,15 @@ const Profile = () => {
     };
   });
   const [saved, setSaved] = useState(false);
-  useEffect(()=> {
-  const user = data?.user || {};
-  setFormData({
-    username: user.username || '',
-    email: user.email || '',
-    phone: user.phone || '',
-    address: user.address || ''
-  })
-  },[loading])
+  useEffect(() => {
+    const user = data?.user || {};
+    setFormData({
+      username: user.username || '',
+      email: user.email || '',
+      phone: user.phone || '',
+      address: user.address || ''
+    })
+  }, [loading])
 
   const handleChange = (event) => {
     setFormData({
@@ -53,18 +53,18 @@ const Profile = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const cleanCopy = {...formData}
+    const cleanCopy = { ...formData }
     // cleanCopy.phone = parseInt(cleanCopy.phone)
-    if(cleanCopy.username.length === 0){
+    if (cleanCopy.username.length === 0) {
       delete cleanCopy.username
     }
-    if(cleanCopy.email.length === 0){
+    if (cleanCopy.email.length === 0) {
       delete cleanCopy.email
     }
-    if(cleanCopy.phone.length === 0){
+    if (cleanCopy.phone.length === 0) {
       delete cleanCopy.phone
     }
-    if(cleanCopy.address.length === 0){
+    if (cleanCopy.address.length === 0) {
       delete cleanCopy.address
     }
 
@@ -77,7 +77,7 @@ const Profile = () => {
       setFormData(cleanCopy);
       setSaved(true);
     } catch (err) {
-      message.error('handle submit error: ',err.message);
+      message.error('handle submit error: ', err.message);
     }
   };
 
@@ -93,25 +93,30 @@ const Profile = () => {
   const user = data?.me || {}
 
   return (
-        <div className="col-md-9">
-          <Card
-            title="My Account"
-          >
-            {saved ? (
-              <UserInfo formData={formData} />
-            ) : (
-            <div>
-              <p><strong>Name:</strong> {user.username}</p>
-              <p><strong>Email:</strong> {user.email}</p>
-              <p><strong>Phone:</strong> {user.phone}</p>
-              <p><strong>Address:</strong> {user.address}</p>
-            </div>
-            )}
-            <FormProfile user={user} formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} mutationError={mutationError}/>
-        
-              </Card>
-              </div>
-              );
-              };
+    <div className="col-md-9">
+      <Card
+        title="My Account"
+      >
+        {saved ? (
+          <UserInfo formData={formData} />
+        ) : (
+          <div>
+            <p><strong>Name:</strong> {user.username}</p>
+            <p><strong>Email:</strong> {user.email}</p>
+            <p><strong>Phone:</strong> {user.phone}</p>
+            <p><strong>Address:</strong> {user.address}</p>
+          </div>
+        )}
+        <FormProfile
+          user={user}
+          formData={formData}
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          mutationError={mutationError}
+        />
+      </Card>
+    </div>
+  );
+};
 
 export default Profile;
