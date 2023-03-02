@@ -1,0 +1,25 @@
+.my-account-card {
+    border: 1px solid #ddd;
+    padding: 16px;
+  }
+  
+  .my-input {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .ant-btn-primary {
+    background-color: #1890ff;
+    border-color: #1890ff;
+  }
+  
+  .ant-btn-primary:hover {
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+  }
+  
+  .ant-btn-primary:active {
+    background-color: #096dd9;
+    border-color: #096dd9;
+  }
+  

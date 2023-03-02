@@ -86,7 +86,7 @@ query listing($zip: String!) {
 		}
 	}
 }
-`
+`;
 
 export const QUERY_SINGLE_LISTING = gql`
   query getSingleThought($thoughtId: ID!) {
@@ -106,11 +106,24 @@ export const QUERY_SINGLE_LISTING = gql`
 `;
 
 export const QUERY_ME = gql`
-  query me {
-    me {
-      _id
-      username
-      email
-    }
+query getUserByUsername {
+  me {
+    email
+    address
+    phone
+    username
+    _id
   }
+}
+`;
+
+export const QUERY_PROFILE = gql`
+query getUserByUsername($username: String!) {
+  user(username: $username) {
+    _id
+    username
+    email
+  }
+}
+
 `;

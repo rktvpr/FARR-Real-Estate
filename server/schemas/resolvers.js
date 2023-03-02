@@ -19,7 +19,7 @@ const resolvers = {
       return data
     },
     users: async () => {
-      return User.find().populate('Listings');
+      return User.find();
     },
 
     // searchRegion(name: String!, sortName: Int): [Region]
@@ -42,7 +42,7 @@ const resolvers = {
       }
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('Listings');
+      return User.findOne({ username });
     },
     listing: async ( parent, args ) => {
       console.log(args)
@@ -95,7 +95,7 @@ const resolvers = {
 
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('Listings');
+        return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -107,22 +107,28 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+  
     login: async (parent, { username, password }) => {
       const user = await User.findOne({ username });
-
+  
       if (!user) {
         throw new AuthenticationError('No user found with this email address');
       }
-
+  
       const correctPw = await user.isCorrectPassword(password);
-
+  
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
-
+  
       const token = signToken(user);
-
+  
       return { token, user };
+    },
+  
+    updateUser: async (parent, { id, username, email, phone, address, password }) => {
+      const user = await User.findByIdAndUpdate(id, { username, email, phone, address, password }, { new: true });
+      return user;
     },
   },
 };
