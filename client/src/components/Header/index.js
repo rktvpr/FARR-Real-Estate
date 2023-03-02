@@ -78,7 +78,7 @@ const Header = () => {
                         <Link to={item.link}>{item.label}</Link>
                     </Menu.Item>
                 ))}
-                  <Menu.Item key="input">
+                  <Menu.Item key="search">
                 <form onSubmit={handleSubmit}>
                     <input type="text"
                         value={searchQuery || ''}

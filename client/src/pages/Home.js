@@ -1,17 +1,26 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
-import { QUERY } from '../utils/queries';
+import Background from '../images/home-bg.jpg'
 
 
 const Home = () => {
     return (
         <div>
-            <Header/>
-            <Footer/>
+            <Header />
+            <div style={{
+                backgroundImage: `url(${Background})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                height: '100vh'
+            }}>
+
+            </div>
+            <footer>
+                <Footer />
+            </footer>
         </div>
     )
 }
