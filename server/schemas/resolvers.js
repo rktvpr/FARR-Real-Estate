@@ -126,8 +126,8 @@ const resolvers = {
       return { token, user };
     },
   
-    updateUser: async (parent, { id, username, email, phone, address, password }) => {
-      const user = await User.findByIdAndUpdate(id, { username, email, phone, address, password }, { new: true });
+    updateUser: async (parent, { username, email, password }, context) => {
+      const user = await User.findByIdAndUpdate(context.user._id, { username, email, password }, { new: true });
       return user;
     },
   },
