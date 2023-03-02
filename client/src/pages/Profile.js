@@ -14,8 +14,8 @@ const UserInfo = ({ formData }) => (
   <div>
     <p><strong>Name:</strong> {formData.username}</p>
     <p><strong>Email:</strong> {formData.email}</p>
-    <p><strong>Phone:</strong> {formData.phone}</p>
-    <p><strong>Address:</strong> {formData.address}</p>
+    {/* <p><strong>Phone:</strong> {formData.phone}</p>
+    <p><strong>Address:</strong> {formData.address}</p> */}
   </div>
 );
 
@@ -31,8 +31,8 @@ const Profile = () => {
     return {
       username: user.username || '',
       email: user.email || '',
-      phone: user.phone || '',
-      address: user.address || ''
+      // phone: user.phone || '',
+      // address: user.address || ''
     };
   });
   const [saved, setSaved] = useState(false);
@@ -41,8 +41,8 @@ const Profile = () => {
     setFormData({
       username: user.username || '',
       email: user.email || '',
-      phone: user.phone || '',
-      address: user.address || ''
+      // phone: user.phone || '',
+      //address: user.address || ''
     })
   }, [loading])
 
@@ -64,12 +64,12 @@ const Profile = () => {
     if (cleanCopy.email.length === 0) {
       delete cleanCopy.email
     }
-    if (cleanCopy.phone.length === 0) {
-      delete cleanCopy.phone
-    }
-    if (cleanCopy.address.length === 0) {
-      delete cleanCopy.address
-    }
+    // if (cleanCopy.phone.length === 0) {
+    //   delete cleanCopy.phone
+    // }
+    // if (cleanCopy.address.length === 0) {
+    //   delete cleanCopy.address
+    // }
 
     try {
       await updateUser({
@@ -107,8 +107,8 @@ const Profile = () => {
           <div>
             <p><strong>Name:</strong> {user.name}</p>
             <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>Phone:</strong> {user.phone}</p>
-            <p><strong>Address:</strong> {user.address}</p>
+            {/* <p><strong>Phone:</strong> {user.phone}</p>
+            <p><strong>Address:</strong> {user.address}</p> */}
           </div>
         )}
         <FormProfile

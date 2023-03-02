@@ -109,8 +109,6 @@ export const QUERY_ME = gql`
 query getUserByUsername {
   me {
     email
-    address
-    phone
     username
     _id
   }
