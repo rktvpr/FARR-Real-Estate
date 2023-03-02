@@ -63,8 +63,10 @@ const Login = () => {
   //}
 
   return (
+    <div>
+       <Header />
     <div className="loginBg">
-      <Header />
+     
 
       <h1 className="welcome" style={{ textColor: "orange" }}>
         Welcome Back!
@@ -135,6 +137,7 @@ const Login = () => {
       <footer className="footer">
         <Footer />
       </footer>
+    </div>
     </div>
   );
 };
