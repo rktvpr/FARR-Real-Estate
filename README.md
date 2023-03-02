@@ -23,12 +23,6 @@ Register an account and login to get started with FARRR Real Estate! Search for 
  
 5. User then will have the option to reach out to a real estate agent and further pursue this property.
 
-<h1 align="center"> Search Demo </h1>
-
-<p align="center">
-  <img src="./assets/images/.gif">
-</p>
-
 _ _ _
 
 <h1 align="center">Technologies Used</h1>
