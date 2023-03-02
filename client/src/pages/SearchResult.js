@@ -13,13 +13,13 @@ import Background from '../images/Background-img-Results.jpg'
 import { useParams } from 'react-router-dom'
 
 const SearchResult = () => {
-    const {zip} = useParams();
+    const { zip } = useParams();
     const { loading, data } = useQuery(LISTING, {
-        variables: { zip: zip.toString()}
+        variables: { zip: zip.toString() }
     });
     // const location = useLocation();
 
-       // const searchQuery = new URLSearchParams(location.search).get("q");
+    // const searchQuery = new URLSearchParams(location.search).get("q");
     // if (loading) return <p>loading...</p>
     // console.log(data)
     // useEffect(() => {
@@ -28,7 +28,7 @@ const SearchResult = () => {
     console.log(data)
     console.log(loading)
     if (loading) return <div>loading...</div>
-    
+
     return (
         <div>
             <Header />
@@ -39,7 +39,7 @@ const SearchResult = () => {
                 backgroundPosition: 'center'
             }}>
                 <div style={{ marginLeft: '45px' }}>
-                <h1 className="resultsTitle" style={{ color: 'white', fontSize: '65px' }}>Search Results for "{zip}"</h1>
+                    <h1 className="resultsTitle" style={{ color: 'white', fontSize: '65px' }}>Search Results for "{zip}"</h1>
                 </div>
                 <Row>
                     <Col span={12} push={14} style={{ marginBottom: '75px' }}>
@@ -132,7 +132,14 @@ const SearchResult = () => {
                     </Col>
                 </Row>
 
-                <Footer />
+                <footer style={{
+                    width: "100%",
+                    position: "absolute",
+                    bottom: 0,
+                    marginBottom: "10px"
+                }}>
+                    <Footer />
+                </footer>
             </div>
         </div >
     )

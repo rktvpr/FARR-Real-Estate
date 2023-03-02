@@ -22,7 +22,7 @@ const SingleListing = () => {
     console.log(property_id)
 
     if (loading) return <p>Loading...</p>;
-    if(!loading) console.log(data.home_search)
+    if (!loading) console.log(data.home_search)
 
     const property = data.home_search
 
@@ -57,12 +57,12 @@ const SingleListing = () => {
                         }}>
 
                             <h3>Description:</h3>
-                            <p style={{fontWeight: 'bold'}}>List Price: {property.list_price.toLocaleString()}</p>
-                            <p style={{fontWeight: 'bold'}}>Type: {property.description.type.replace("_", " ")}</p>
-                            <p style={{fontWeight: 'bold'}}>Beds: {property.description.beds}</p>
-                            <p style={{fontWeight: 'bold'}}>Baths: {property.description.baths}</p>
-                            <p style={{fontWeight: 'bold'}}>Lot squarefeet: {property.description.lot_sqft}</p>
-                            <p style={{fontWeight: 'bold'}}>Squarefeet: {property.description.sqft}</p>
+                            <p style={{ fontWeight: 'bold' }}>List Price: {property.list_price.toLocaleString()}</p>
+                            <p style={{ fontWeight: 'bold' }}>Type: {property.description.type.replace("_", " ")}</p>
+                            <p style={{ fontWeight: 'bold' }}>Beds: {property.description.beds}</p>
+                            <p style={{ fontWeight: 'bold' }}>Baths: {property.description.baths}</p>
+                            <p style={{ fontWeight: 'bold' }}>Lot squarefeet: {property.description.lot_sqft}</p>
+                            <p style={{ fontWeight: 'bold' }}>Squarefeet: {property.description.sqft}</p>
                         </div>
 
                         <Space direction="vertical" style={{ width: '100%', marginBottom: '350px' }}>
@@ -122,7 +122,14 @@ const SingleListing = () => {
 
                 </Row>
             </div>
-            <Footer />
+            <footer style={{
+                width: "100%",
+                position: "absolute",
+                bottom: 0,
+                marginBottom: "10px"
+            }}>
+                <Footer />
+            </footer>
         </div>
 
     );
