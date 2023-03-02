@@ -126,7 +126,7 @@ const SingleListing = () => {
                 width: "100%",
                 position: "absolute",
                 bottom: 0,
-                marginBottom: "10px"
+                marginBottom: "-200px"
             }}>
                 <Footer />
             </footer>

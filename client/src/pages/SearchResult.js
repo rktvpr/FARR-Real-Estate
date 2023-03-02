@@ -132,15 +132,15 @@ const SearchResult = () => {
                     </Col>
                 </Row>
 
-                <footer style={{
+            </div>
+            <footer style={{
                     width: "100%",
                     position: "absolute",
                     bottom: 0,
-                    marginBottom: "10px"
+                    marginBottom: "-1850px"
                 }}>
                     <Footer />
                 </footer>
-            </div>
         </div >
     )
 }
