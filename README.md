@@ -38,7 +38,7 @@ _ _ _
 * [GraphQL](https://graphql.org/learn/)
 * [MongoDB](https://www.mongodb.com/docs/)
 * [Heroku](https://devcenter.heroku.com/)
-* [AntDesign]https://ant.design/docs/react/introduce)
+* [AntDesign](https://ant.design/docs/react/introduce)
 * [Axios](https://axios-http.com/docs/intro)
 * [Express](https://expressjs.com/en/guide/routing.html)
 * [Apllo](https://www.apollographql.com/docs/)
