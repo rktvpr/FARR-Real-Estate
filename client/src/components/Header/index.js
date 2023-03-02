@@ -1,6 +1,13 @@
 import { Menu } from 'antd';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Auth from '../../utils/auth';
+import logo from '../../images/WhiteLogo.png'
+
+const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+};
 
 const items = [
     {
@@ -24,6 +31,11 @@ const items = [
         link: '/contactrealtor'
     },
     {
+        label: 'Sign out',
+        key: 'signout',
+        onClick: { logout }
+    },
+    {
         label: 'Profile',
         key: 'profile',
         link: '/profile'
@@ -41,7 +53,7 @@ const Header = () => {
 
     const onSearchChange = (e) => {
         setSearchQuery(e.target.value);
-    }
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -51,6 +63,10 @@ const Header = () => {
     return (
         <div>
             <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal">
+            <img src={logo} alt="Logo" style={{
+                  width: '50px',
+                  height: '50px'
+            }} />
                 {items.map(item => (
                     <Menu.Item key={item.key} icon={item.icon}>
                         <Link to={item.link}>{item.label}</Link>
@@ -64,7 +80,7 @@ const Header = () => {
                         style={{
                             border: 'none',
                             outline: 'none',
-                            width: '1300px',
+                            width: '1250px',
                             marginLeft: 45
                         }} />
                     <button type="submit">Go</button>
