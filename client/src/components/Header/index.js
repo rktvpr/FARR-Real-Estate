@@ -87,6 +87,7 @@ const Header = () => {
                         style={{
                             border: 'none',
                             outline: 'none',
+
                             marginLeft: 45
                         }} />
                     <button type="submit">Go</button>

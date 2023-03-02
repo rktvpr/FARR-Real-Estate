@@ -132,7 +132,7 @@ const Login = () => {
           </div>
         </Form.Item>
       </Form>
-      <footer>
+      <footer className="footer">
         <Footer />
       </footer>
     </div>
