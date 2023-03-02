@@ -1,6 +1,7 @@
 import { Menu } from 'antd';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../images/WhiteLogo.png'
 
 const items = [
     {
@@ -51,6 +52,10 @@ const Header = () => {
     return (
         <div>
             <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal">
+                <img src={logo} alt="Logo" style={{
+                    width: '50px',
+                    height: '50px'
+                }} />
                 {items.map(item => (
                     <Menu.Item key={item.key} icon={item.icon}>
                         <Link to={item.link}>{item.label}</Link>

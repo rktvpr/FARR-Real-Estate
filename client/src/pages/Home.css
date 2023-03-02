@@ -1,10 +1,10 @@
 .homeBg {
     display:flex;
-    /* background-size: contain; */
     width:100vw;
     height:100vh;
     background: url("../../public/couch-photo.jpg");
-    background-size: contain;
+    background-size: cover;
+    background-repeat: "no-repeat";
 }
 
 footer {
