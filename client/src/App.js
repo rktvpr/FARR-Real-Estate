@@ -12,11 +12,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Signup from './pages/Signup';
- import Login from './pages/Login';
+import Login from './pages/Login';
 import SingleListing from './pages/SingleListing';
 import Profile from './pages/Profile';
 import SearchResult from './pages/SearchResult';
 import ContactRealtor from './pages/ContactRealtor';
+import Navbar from './components/Navbar';
 // import {browser as Router, swithc, Route} from 'react-router-dom'
 
 // Construct our main GraphQL API endpoint
@@ -48,16 +49,17 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
+          <Navbar />
           <div className="container">
             <Routes>
               <Route
                 path="/"
                 element={<Home />}
               />
-               <Route
+              <Route
                 path="/login"
                 element={<Login />}
-              /> 
+              />
               <Route
                 path="/signup"
                 element={<Signup />}
