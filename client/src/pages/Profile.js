@@ -107,8 +107,8 @@ const Profile = () => {
           <div>
             <p><strong>Name:</strong> {user.name}</p>
             <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>Phone:</strong> {user.phone}</p>
-            <p><strong>Address:</strong> {user.address}</p>
+            {/* <p><strong>Phone:</strong> {user.phone}</p>
+            <p><strong>Address:</strong> {user.address}</p> */}
           </div>
         )}
         <FormProfile
