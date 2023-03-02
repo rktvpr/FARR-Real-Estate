@@ -93,21 +93,6 @@ const Profile = () => {
   const user = data?.me || {}
 
   return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-3">
-          <Card
-            cover={<img src={user.image} alt={user.name} className="card-img-top" />}
-          >
-            <Card.Meta
-              title={user.name}
-              description={<>
-                <p>{user.email}</p>
-                <p>{user.phone}</p>
-              </>}
-            />
-          </Card>
-        </div>
         <div className="col-md-9">
           <Card
             title="My Account"
@@ -125,8 +110,6 @@ const Profile = () => {
             <FormProfile user={user} formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} mutationError={mutationError}/>
         
               </Card>
-              </div>
-              </div>
               </div>
               );
               };
