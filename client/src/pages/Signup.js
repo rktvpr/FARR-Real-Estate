@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { Form, Input, Button } from "antd";
+import "../pages/Signup.css";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Header from '../components/Header/index'
@@ -31,9 +32,11 @@ const Signup = () => {
    
   };
   return (
-    <div>
-      <Header/>
-      <Form
+    <div className="signupBg">
+         <Header />
+        
+        <h1  className="welcome" style={{textColor:"orange"}}>Sign Up!!</h1>
+      <Form className="signupForm"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600 }}
@@ -95,9 +98,14 @@ const Signup = () => {
         </Button>    
         </Form.Item>
       </Form>
+      <footer>
+
       <Footer/>
+      </footer>
     </div>
+    
   );
+  
 };
 
 export default Signup;
