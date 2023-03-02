@@ -2,8 +2,9 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type User {
-    _id: ID
+    
     username: String
+    _id: ID
     email: String
     phone: String
     address: String
@@ -25,25 +26,42 @@ type Region {
   property_id: String
   primary_photo: Photo
   location: Location
-  description: Description
-}
-
-type Description {
-  type: String
-  beds: Int
-  baths: Int
-  sqft: Int
+ description: ListingDescription
 }
 
 type Location {
   address: Address
-  description: Description
+  description: ListingDescription
 }
 
 type Address {
   city: String
   line: String
   state: String
+}
+
+type HomePhoto {
+  href: String!
+}
+
+type SearchHome {
+  property_id: String!
+  listing_id: Int!
+  photos: [HomePhoto!]!
+}
+
+type SearchHomeResult {
+  list_price: Int!
+  description: ListingDescription
+  location: Location
+  photos: [Photo]
+}
+type ListingDescription {
+  type: String
+  beds: Int
+  baths: Int
+  lot_sqft: Int
+  sqft: Int
 }
 
 type Photo {
@@ -59,8 +77,9 @@ type Photo {
     users: [User]
     user(username: String!): User
     me: User
-    listing: ListingResult
+    listing(zip: String!): ListingResult
     listings: ListingResult
+    home_search(property_id: String!): SearchHomeResult!
     searchRegion(name: String!, sortName: Int): [Region]
   }
 

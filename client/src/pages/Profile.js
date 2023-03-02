@@ -6,6 +6,9 @@ import { Card, Input, Button, Form, message } from 'antd';
 import { UserOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import '../profile.css';
 import FormProfile from '../components/FormProfile';
+import Header from '../components/Header/index'
+import Footer from '../components/Footer/index'
+
 
 const UserInfo = ({ formData }) => (
   <div>
@@ -94,6 +97,7 @@ const Profile = () => {
 
   return (
     <div className="col-md-9">
+      <Header/>
       <Card
         title="My Account"
       >
@@ -115,6 +119,7 @@ const Profile = () => {
           mutationError={mutationError}
         />
       </Card>
+      <Footer/>
     </div>
   );
 };

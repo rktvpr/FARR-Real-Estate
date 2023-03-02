@@ -17,7 +17,7 @@ import SingleListing from './pages/SingleListing';
 import Profile from './pages/Profile';
 import SearchResult from './pages/SearchResult';
 import ContactRealtor from './pages/ContactRealtor';
-
+// import {browser as Router, swithc, Route} from 'react-router-dom'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -67,7 +67,7 @@ function App() {
                 element={<ContactRealtor />}
               />
               <Route
-                path="/searchresult"
+                path="/searchresult/:zip"
                 element={<SearchResult />}
               />
               <Route

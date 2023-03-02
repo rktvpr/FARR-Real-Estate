@@ -1,0 +1,64 @@
+.loginBg{
+ display: flex; 
+  width: 100vw;
+  height: 100vh;
+  background: url('../../public/login.jpg');
+  background-size: contain;
+  
+}
+
+.loginForm{
+  background-color: rgba(255, 255, 255,0.33);
+  box-shadow: 0px 36px 30px 0  rgba(0, 0, 255, 0.3);
+  backdrop-filter: blur(3px);
+  padding: 10px 40px 16px 16px;
+  border-radius: 16px;
+  margin-bottom: 500px;
+  margin-top: 50px;
+  position: absolute ;
+  left: 30px;
+  top: 100px;
+}
+
+.welcome{
+  padding: 50px 40px 16px 16px;
+}
+
+.socialLogin{
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.socialIcon{
+  cursor: pointer;
+}
+
+footer {
+  width: 100%;
+  position:absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+
+/*@media screen and (max-width: 880px) {
+  .loginForm {
+    padding-top: 75px;
+
+  }
+}
+
+
+@media screen and (max-width: 572px) {
+  .loginForm {
+    margin-top: 10px;
+  }
+  .footer {
+    display: flex;
+    position: relative;
+   
+  }
+  .footer {
+    font-size: 17px;
+  }
+}*/
+
