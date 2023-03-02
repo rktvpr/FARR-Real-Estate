@@ -24,58 +24,26 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-      }
-    }
+export const UPDATE_USER = gql`
+mutation Mutation($username: String, $email: String, $address: String, $phone: Int, $password: String) {
+  updateUser(username: $username, email: $email, address: $address, phone: $phone, password: $password) {
+    _id
+    email
+    username
+    address
+    phone
   }
+}
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
-    }
-  }
-`;
-
-export const MUTATION_UPDATE_USER = gql`
-  mutation updateUser(
-    $name: String
-    $email: String
-    $phone: String
-    $address: String
-  ) {
-    updateUser(
-      name: $name
-      email: $email
-      phone: $phone
-      address: $address
-    ) {
-      _id
-      name
-      email
-      phone
-      address
-    }
-  }
-`;
+// Variables
+// {
+//   "username": null,
+//   "email": null,
+//   "address": null,
+//   "phone": null,
+//   "password": null
+// }
 
 
 

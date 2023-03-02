@@ -41,7 +41,7 @@ query {
 		}
 	}
 }
-`
+`;
 
 export const QUERY_SINGLE_LISTING = gql`
   query getSingleThought($thoughtId: ID!) {
@@ -67,5 +67,16 @@ export const QUERY_ME = gql`
       username
       email
     }
+  } 
+`;
+
+export const QUERY_PROFILE = gql`
+query getUserByUsername($username: String!) {
+  user(username: $username) {
+    _id
+    username
+    email
   }
+}
+
 `;

@@ -5,7 +5,9 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    password: String
+    phone: Int
+    address: String
+
   }
 
   type ListingResult {
@@ -64,14 +66,14 @@ type Photo {
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-
     login(username: String!, password: String!): Auth
+    updateUser( username: String, email: String, address: String, phone: Int, password: String): User
     # addThought(thoughtText: String!): Thought
     # addComment(thoughtId: ID!, commentText: String!): Thought
     # removeThought(thoughtId: ID!): Thought
-    # removeComment(thoughtId: ID!, commentId: ID!): Thought 
-
+    # removeComment(thoughtId: ID!, commentId: ID!): Thought
   }
+  
 `;
 
 module.exports = typeDefs;

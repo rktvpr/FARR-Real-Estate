@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER } from '../utils/queries';
-import { MUTATION_UPDATE_USER } from '../utils/mutations';
-// import { exampleuser } from '../seeders/profileSeeds';
+import { QUERY_PROFILE } from '../utils/queries';
+import { UPDATE_USER } from '../utils/mutations';
 import { Card, Input, Button, Form, message } from 'antd';
 import { UserOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined } from '@ant-design/icons';
+// import '../profile.css';
+
 
 const Profile = () => {
 
-
-  const { loading, error, data } = useQuery(QUERY_USER);
-
-  const [updateUser] = useMutation(MUTATION_UPDATE_USER);
+  const { loading, error, data } = useQuery(QUERY_PROFILE);
+  const [updateUser, {error: mutationError}] = useMutation(UPDATE_USER);
 
   const [formData, setFormData] = useState({
-    name: '',
+    username: '',
+    password: '',
     email: '',
     phone: '',
     address: ''
@@ -30,19 +30,31 @@ const Profile = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const cleanCopy = {...formData}
+    if(cleanCopy.username.length === 0){
+      delete cleanCopy.username
+    }
+    if(cleanCopy.password.length === 0){
+      delete cleanCopy.username
+    }
+    if(cleanCopy.email.length === 0){
+      delete cleanCopy.email
+    }
+    if(cleanCopy.phone.length === 0){
+      delete cleanCopy.username
+    }
+    if(cleanCopy.address.length === 0){
+      delete cleanCopy.username
+    }
+
     try {
       await updateUser({
-        variables: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          address: formData.address
-        }
+        variables: cleanCopy
       });
 
       message.success('Profile updated successfully');
     } catch (err) {
-      message.error(err.message);
+      message.error('handle submit error: ',err.message);
     }
   };
 
@@ -89,6 +101,7 @@ const Profile = () => {
               <Form.Item label="Address">
                 <Input prefix={<EnvironmentOutlined />} name="address" value={formData.address} onChange={handleChange} />
               </Form.Item>
+              {mutationError}
               <Button type="primary" htmlType="submit">Save Changes</Button>
             </Form>
           </Card>
