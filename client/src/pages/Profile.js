@@ -9,7 +9,7 @@ import FormProfile from '../components/FormProfile';
 
 const UserInfo = ({ formData }) => (
   <div>
-    <p><strong>Name:</strong> {formData.name}</p>
+    <p><strong>Name:</strong> {formData.username}</p>
     <p><strong>Email:</strong> {formData.email}</p>
     <p><strong>Phone:</strong> {formData.phone}</p>
     <p><strong>Address:</strong> {formData.address}</p>
@@ -101,7 +101,7 @@ const Profile = () => {
           <UserInfo formData={formData} />
         ) : (
           <div>
-            <p><strong>Name:</strong> {user.username}</p>
+            <p><strong>Name:</strong> {user.name}</p>
             <p><strong>Email:</strong> {user.email}</p>
             <p><strong>Phone:</strong> {user.phone}</p>
             <p><strong>Address:</strong> {user.address}</p>
