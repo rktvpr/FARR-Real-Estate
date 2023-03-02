@@ -67,7 +67,7 @@ function App() {
                 element={<ContactRealtor />}
               />
               <Route
-                path="/searchresult"
+                path="/searchresult/:zip"
                 element={<SearchResult />}
               />
               <Route

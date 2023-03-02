@@ -44,7 +44,8 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('Listings');
     },
-    listing: async () => {
+    listing: async ( parent, args ) => {
+      console.log(args)
       const options = {
         method: 'POST',
         url: 'https://realty-in-us.p.rapidapi.com/properties/v3/list',
@@ -53,25 +54,43 @@ const resolvers = {
           'X-RapidAPI-Key': process.env.API_KEY,
           'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
         },
-        data: '{"limit":200,"offset":0,"postal_code":"90004","status":["for_sale","ready_to_build"],"sort":{"direction":"desc","field":"list_date"}}'
+        data: `{"limit":200,"offset":0,"postal_code":"${args.zip}","status":["for_sale","ready_to_build"],"sort":{"direction":"desc","field":"list_date"}}`
       };
       const result = await axios.request(options);
-      console.log(result.home_search);
+      console.log(result.data);
       return result.data.data.home_search;
     },
 
     home_search: async (_, { property_id }) => {
-      const options = {
-        method: 'GET',
-        url: 'https://realty-in-us.p.rapidapi.com/properties/v3/get-photos',
-        params: { property_id },
-        headers: {
-          'X-RapidAPI-Key': process.env.API_KEY,
-          'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
-        }
-      };
-      const result = await axios.request(options);
-      return result.data.data.home_search;
+      try {
+        // const imageOptions = {
+        //   method: 'GET',
+        //   url: 'https://realty-in-us.p.rapidapi.com/properties/v3/get-photos',
+        //   params: { property_id },
+        //   headers: {
+        //     'X-RapidAPI-Key': process.env.API_KEY,
+        //     'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
+        //   }
+        // };
+        const propertyOptions = {
+          method: 'GET',
+          url: 'https://realty-in-us.p.rapidapi.com/properties/v3/detail',
+          params: { property_id },
+          headers: {
+            'X-RapidAPI-Key': process.env.API_KEY,
+            'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
+          }
+        };
+        // const imageResult = await axios.request(imageOptions);
+        const propertyResult = await axios.request(propertyOptions);
+
+        console.log(propertyResult.data.data.home)
+        return propertyResult.data.data.home;
+
+      }
+      catch (e) {
+        console.log(e)
+      }
     },
 
     me: async (parent, args, context) => {
